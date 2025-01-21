@@ -1,12 +1,22 @@
 #include <subsystems/SwerveModule.h>
 
+#include <frc/geometry/Rotation2d.h>
+
+#include "Configs.h"
+
 using namespace rev::spark;
 
 SwerveModule::SwerveModule(const int driveCANId, const int turnCANId, const double angleOffset)
     : driveMotor(driveCANId, SparkMax::MotorType::kBrushless),
       turnMotor(turnCANId, SparkMax::MotorType::kBrushless) {
 
-    // Configure motors
+    driveMotor.Configure(Configs::SwerveModule::DriveConfig(),
+                         SparkBase::ResetMode::kResetSafeParameters,
+                         SparkBase::PersistMode::kPersistParameters);
+    
+    turnMotor.Configure(Configs::SwerveModule::TurnConfig(),
+                        SparkBase::ResetMode::kResetSafeParameters,
+                        SparkMax::PersistMode::kPersistParameters);
 
     this->angleOffset = angleOffset;
     desiredState.angle = frc::Rotation2d(units::radian_t{turnEncoder.GetPosition()});
