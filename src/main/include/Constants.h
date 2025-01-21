@@ -117,3 +117,7 @@ namespace OIConstants {
 constexpr int kDriverControllerPort = 0;
 constexpr double kDriveDeadband = 0.05;
 }  // namespace OIConstants
+
+namespace OperatorConstants {
+    inline constexpr int kDriverControllerPort = 0;
+}
