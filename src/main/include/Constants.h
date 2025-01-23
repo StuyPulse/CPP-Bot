@@ -119,3 +119,8 @@ namespace OIConstants {
 constexpr int kDriverControllerPort = 0;
 constexpr double kDriveDeadband = 0.05;
 }  // namespace OIConstants
+
+namespace DiffDrive {
+    constexpr int kLeftCanId = 0;
+    constexpr int kRightCanId = 1;
+}

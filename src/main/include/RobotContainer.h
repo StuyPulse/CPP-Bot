@@ -14,6 +14,10 @@
 #include "commands/DriveCommand.h"
 #include "commands/auton/Mobility.h"
 
+#include "subsystems/DifferentialDrive.h"
+#include "commands/auton/DifferentialMobility.h"
+#include "commands/DifferentialDriveCommand.h"
+
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -37,6 +41,10 @@ class RobotContainer {
   SetXCommand m_setXCommand{&m_drive};
 
   DriveCommand m_driveCommand{&m_drive, &m_driverController};
+
+  DifferentialDrive m_differentialDrive;
+  DifferentialDriveCommand m_differentialDriveCommand{&m_differentialDrive, &m_driverController};
+  DifferentialMobility m_differentialMobility{&m_differentialDrive};
 
   frc::SendableChooser<frc2::Command*> m_chooser;
 

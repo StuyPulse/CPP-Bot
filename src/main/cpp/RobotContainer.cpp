@@ -17,6 +17,7 @@
 RobotContainer::RobotContainer() {
 	// Initialize all of your commands and subsystems here
 	m_drive.SetDefaultCommand(std::move(m_driveCommand));
+	// m_differentialDrive.SetDefaultCommand(std::move(m_differentialDriveCommand));
 	// Configure the button bindings
 	ConfigureBindings();
 }
@@ -27,8 +28,6 @@ void RobotContainer::ConfigureBindings() {
 } 
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-	// // An example command will be run in autonomous
-	// return autos::ExampleAuto(&m_subsystem);
 
 	frc::TrajectoryConfig config(AutoConstants::kMaxSpeed, AutoConstants::kMaxAcceleration);
 	config.SetKinematics(m_drive.kDriveKinematics);
@@ -62,4 +61,6 @@ frc2::Command* RobotContainer::GetAutonomousCommand() {
 		std::move(swerveControllerCommand),
 		frc2::InstantCommand(
 			[this]() { m_drive.Drive(0_mps, 0_mps, 0_rad_per_s, false); }, {}));
+
+	// return &m_differentialMobility;
 }
