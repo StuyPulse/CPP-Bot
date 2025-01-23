@@ -102,10 +102,10 @@ namespace Turn {
 }  // namespace ModuleConstants
 
 namespace AutoConstants {
-constexpr auto kMaxSpeed = 3_mps;
-constexpr auto kMaxAcceleration = 3_mps_sq;
-constexpr auto kMaxAngularSpeed = 3.142_rad_per_s;
-constexpr auto kMaxAngularAcceleration = 3.142_rad_per_s_sq;
+constexpr auto kMaxSpeed = 2_mps;
+constexpr auto kMaxAcceleration = 7_mps_sq;
+constexpr auto kMaxAngularSpeed = 6.75_rad_per_s;
+constexpr auto kMaxAngularAcceleration = 100.0_rad_per_s_sq;
 
 constexpr double kPXController = 0.5;
 constexpr double kPYController = 0.5;
@@ -117,9 +117,5 @@ extern const frc::TrapezoidProfile<units::radians>::Constraints
 
 namespace OIConstants {
 constexpr int kDriverControllerPort = 0;
-constexpr double kDriveDeadband = 0.02;
+constexpr double kDriveDeadband = 0.05;
 }  // namespace OIConstants
-
-namespace OperatorConstants {
-    inline constexpr int kDriverControllerPort = 0;
-}

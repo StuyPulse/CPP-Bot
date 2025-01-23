@@ -16,4 +16,7 @@
   },
   "C_Cpp.default.configurationProvider": "vscode-wpilib",
   "editor.inlineSuggest.enabled": false,
+  "files.associations": {
+    "array": "cpp"
+  },
 }

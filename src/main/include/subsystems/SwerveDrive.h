@@ -46,10 +46,10 @@ class SwerveDrive : public frc2::SubsystemBase {
         };
 
     private:
-        SwerveModule frontRight;
         SwerveModule frontLeft;
-        SwerveModule rearRight;
         SwerveModule rearLeft;
+        SwerveModule frontRight;
+        SwerveModule rearRight;
 
         frc::ADIS16470_IMU gyro;
 
