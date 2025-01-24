@@ -31,8 +31,8 @@
 namespace DriveConstants {
 // Driving Parameters - Note that these are not the maximum capable speeds of
 // the robot, rather the allowed maximum speeds
-constexpr units::meters_per_second_t kMaxSpeed = 5.0_mps;
-constexpr units::radians_per_second_t kMaxAngularSpeed = 6.75_rad_per_s;
+constexpr units::meters_per_second_t kMaxSpeed = 1.0_mps;
+constexpr units::radians_per_second_t kMaxAngularSpeed = 3.0_rad_per_s;
 
 constexpr double kDirectionSlewRate = 1.2;   // radians per second
 constexpr double kMagnitudeSlewRate = 1.8;   // percent per second (1 = 100%)
@@ -40,26 +40,26 @@ constexpr double kRotationalSlewRate = 2.0;  // percent per second (1 = 100%)
 
 // Chassis configuration
 constexpr units::meter_t kTrackWidth =
-    {22.213_in};  // Distance between centers of right and left wheels on robot
+    {39.4_in};  // Distance between centers of right and left wheels on robot
 constexpr units::meter_t kWheelBase =
-    {22.213_in}; // Distance between centers of front and back wheels on robot
+    {34.3_in}; // Distance between centers of front and back wheels on robot
 
 // Angular offsets of the modules relative to the chassis in radians
-constexpr double kFrontLeftChassisAngularOffset {24.785156_deg};
-constexpr double kFrontRightChassisAngularOffset {-85.913086};
-constexpr double kRearLeftChassisAngularOffset {26.762695};
-constexpr double kRearRightChassisAngularOffset {-23.686523};
+constexpr double kFrontLeftChassisAngularOffset {0.052734375};
+constexpr double kFrontRightChassisAngularOffset {0.1318359375};
+constexpr double kRearLeftChassisAngularOffset {0.33154296875};
+constexpr double kRearRightChassisAngularOffset {0.192138671875 + 0.5};
 
 // SPARK MAX CAN IDs
-constexpr int kFrontLeftDrivingCanId = 11;
-constexpr int kRearLeftDrivingCanId = 13;
-constexpr int kFrontRightDrivingCanId = 17;
-constexpr int kRearRightDrivingCanId = 15;
+constexpr int kFrontLeftDrivingCanId = 14;
+constexpr int kRearLeftDrivingCanId = 16;
+constexpr int kFrontRightDrivingCanId = 12;
+constexpr int kRearRightDrivingCanId = 10;
 
-constexpr int kFrontLeftTurningCanId = 10;
+constexpr int kFrontLeftTurningCanId = 15;
 constexpr int kRearLeftTurningCanId = 12;
-constexpr int kFrontRightTurningCanId = 16;
-constexpr int kRearRightTurningCanId = 14;
+constexpr int kFrontRightTurningCanId = 17;
+constexpr int kRearRightTurningCanId = 11;
 }  // namespace DriveConstants
 
 namespace ModuleConstants {
@@ -87,25 +87,25 @@ namespace Drive {
     constexpr double drivingVelocityFF = 1 / kDriveWheelFreeSpeedRps;
     constexpr double driveCurrentLimit = 40;
 
-    constexpr double kP = 3.5257;
+    constexpr double kP = 9.0;
     constexpr double kI = 0.0;
-    constexpr double kD = 0.0;
+    constexpr double kD = 0.1;
 }
 namespace Turn {
     constexpr double turningFactor = 2 * std::numbers::pi;
     constexpr double turnCurrentLimit = 20;
 
-    constexpr double kP = 3.5;
+    constexpr double kP = 9.0;
     constexpr double kI = 0.0;
-    constexpr double kD = 0.1;
+    constexpr double kD = 0.2;
 }
 }  // namespace ModuleConstants
 
 namespace AutoConstants {
-constexpr auto kMaxSpeed = 2_mps;
-constexpr auto kMaxAcceleration = 7_mps_sq;
-constexpr auto kMaxAngularSpeed = 6.75_rad_per_s;
-constexpr auto kMaxAngularAcceleration = 100.0_rad_per_s_sq;
+constexpr auto kMaxSpeed = 1.0_mps;
+constexpr auto kMaxAcceleration = 10_mps_sq;
+constexpr auto kMaxAngularSpeed = 3.0_rad_per_s;
+constexpr auto kMaxAngularAcceleration = 25.0_rad_per_s_sq;
 
 constexpr double kPXController = 0.5;
 constexpr double kPYController = 0.5;
